@@ -1,20 +1,23 @@
 /*
 Autor: Eduardo Gobbo Willi V.G.
 GRR20203892
-ultima modificacao 07/08/2023 21h50
+ultima modificacao 10/08/2023 21h50
 */
 #include "Retangulo.hpp"
 
-void setX(double novoX) { x = novoX; }
-void setY(double novoY) { y = novoY; }
-double getX() { return x; }
-double getY() { return y; }
+double Retangulo::getX() { return x; }
+void Retangulo::setX(double novoX) { x = novoX; }
+
+double Retangulo::getY() { return y; }
+void Retangulo::setY(double novoY) { y = novoY; }
 
 bool Retangulo::isQuadrado() { return x == y; }
 
 double Retangulo::getArea() { return x * y; }
 
-void Retangulo::novoRetangulo() {
+double Retangulo::getPerimetro() { return 2 * x + 2 * y; };
+
+void Retangulo::cadastrar() {
     std::cout << "Digite X : ";
     std::cin >> x;
     std::cout << "Digite Y : ";
@@ -22,12 +25,18 @@ void Retangulo::novoRetangulo() {
     return;
 }
 
-void Retangulo::novoRetangulo(double novoX, double novoY) {
+void Retangulo::cadastrar(double novoX, double novoY) {
     x = novoX;
     y = novoY;
     return;
 }
 
 void Retangulo::show() {
-    std::cout << "Dados do retangulo: (X, Y) -> (" << x << ", " << y << ")\n";
+    std::cout << "+-------------------------------+\n";
+    std::cout << "|Dados do retangulo (X: " << x << ", Y: " << y << ")\n";
+    std::cout << '|' << (isQuadrado() ? "Eh quadrado\t" : "Não eh quadrado")
+              << "\t\t|\n";
+    std::cout << "|Perimetro : " << getPerimetro() << "\t\t\t|\n";
+    std::cout << "|Area : " << getArea() << "\t\t\t|\n";
+    std::cout << "+-------------------------------+\n";
 }

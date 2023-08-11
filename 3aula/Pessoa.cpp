@@ -1,7 +1,7 @@
 /*
 Autor: Eduardo Gobbo Willi V.G.
 GRR20203892
-ultima modificacao 07/08/2023 21h50
+ultima modificacao 10/08/2023 21h50
 */
 #include "Pessoa.hpp"
 
@@ -16,7 +16,21 @@ void Pessoa::setCpf(uint64_t novoCpf) {
 }
 
 std::string Pessoa::getNome() { return nome; }
-void Pessoa::setNome(std::string novoNome) { nome = novoNome; }
+
+void Pessoa::setNome(std::string novoNome) {
+    if (novoNome.length() > 100) {
+        novoNome = novoNome.substr(0, 100);
+    }
+    nome = novoNome;
+}
+
+void Pessoa::setNome() {
+    char maxName[100];
+    std::cout << "Digite um nome: ";
+    std::cin.getline(maxName, 100);
+    nome = maxName;
+    return;
+}
 
 unsigned short Pessoa::getIdade() { return idade; }
 void Pessoa::setIdade(unsigned short novaIdade) {
@@ -66,7 +80,7 @@ Pessoa Pessoa::cadastrar() {
     std::cin >> novaIdade;
     idade = novaIdade;  // ler docs, como contornar
 
-    bool valido = false;
+    bool valido{false};
     while (!valido) {
         std::cout << "Digite o cpf \t: ";
         std::cin >> cpf;
@@ -99,8 +113,9 @@ Pessoa Pessoa::cadastrar(const char* nome, uint8_t idade, uint64_t cpf) {
 }
 
 void Pessoa::show() {
-    std::cout << "------------------------------\n";
-    std::cout << "Nome : \t" << getNome() << '\n';
-    std::cout << "Idade: \t" << getIdade() << '\n';
-    std::cout << "CPF  : \t" << getCpf() << '\n';
+    std::cout << "+-------------------------------+\n";
+    std::cout << "|Nome : " << getNome() << "\t\t\t\n";
+    std::cout << "|Idade: " << getIdade() << "\t\t\t|\n";
+    std::cout << "|CPF  : " << getCpf() << "\t\t\t|\n";
+    std::cout << "+-------------------------------+\n";
 }
