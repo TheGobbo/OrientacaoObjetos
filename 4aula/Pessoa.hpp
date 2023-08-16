@@ -1,7 +1,7 @@
 /*
 Autor: Eduardo Gobbo Willi V.G.
 GRR20203892
-ultima modificacao 10/08/2023 21h50
+ultima modificacao 13/08/2023 21h50
 */
 #ifndef PESSOA_HPP
 #define PESSOA_HPP
@@ -11,7 +11,7 @@ ultima modificacao 10/08/2023 21h50
 
 class Pessoa {
    public:
-    Pessoa();  // padrao ou default, SEMPRE deve ter um na classe
+    Pessoa();  // padrao ou default, SEMPRE vai ter um na classe
     Pessoa(std::string novoNome);
     Pessoa(std::string novoNome, uint8_t novaIdade, uint64_t novoCpf);
 
@@ -31,8 +31,8 @@ class Pessoa {
     bool validarCPF(uint64_t cpfTeste);
 
     std::string nome;
-    uint8_t idade;
-    uint64_t cpf;
+    uint8_t idade = 0;
+    uint64_t cpf = 0;
 };
 
 #endif

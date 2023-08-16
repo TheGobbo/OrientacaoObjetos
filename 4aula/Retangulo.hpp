@@ -1,12 +1,10 @@
 /*
 Autor: Eduardo Gobbo Willi V.G.
 GRR20203892
-ultima modificacao 10/08/2023 21h50
+ultima modificacao 13/08/2023 21h50
 */
 #ifndef RETANGULO_HPP
 #define RETANGULO_HPP
-
-#include <iostream>
 
 class Retangulo {
    public:
@@ -14,9 +12,9 @@ class Retangulo {
     Retangulo(double largura, double altura);
 
     double getLargura();
-    void setLargura(double largura);
+    void setLargura(double largura = 7);
     double getAltura();
-    void setAltura(double altura);
+    void setAltura(double altura = 7);
 
     double getPerimetro();
     double getArea();
@@ -26,7 +24,7 @@ class Retangulo {
 
    private:
     double x = 10;
-    double y = 10;
+    double y;
 };
 
 #endif

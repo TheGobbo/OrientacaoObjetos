@@ -3,7 +3,7 @@
 # ultima modificacao 07/08/2023 21h50
 
 parametrosCompilacao=-Wall #-Wshadow
-nomePrograma=4aula
+nomePrograma=aula
 
 all: $(nomePrograma)
 
