@@ -1,7 +1,11 @@
 /*
 Autor: Eduardo Gobbo Willi V.G.
 GRR20203892
+<<<<<<< HEAD
 ultima modificacao 10/08/2023 21h50
+=======
+ultima modificacao 13/08/2023 21h50
+>>>>>>> d151d8ab5e49688ade58162c21fae59e3789b686
 */
 #include "Pessoa.hpp"
 
