@@ -1,5 +1,7 @@
 #include "Disciplina.hpp"
 
+#include <iostream>
+
 Disciplina::Disciplina(std::string nomeDisciplina) : nome{nomeDisciplina} {}
 
 Disciplina::Disciplina(std::string nomeDisciplina, Pessoa* prof)
@@ -36,12 +38,29 @@ bool Disciplina::adicionarAluno(Pessoa* aluno) {
 Pessoa** Disciplina::getVetorAlunos() { return alunos; }
 
 bool Disciplina::removerAluno(Pessoa* aluno) {
-    if (matriculas == 0) {
+    if (matriculas == 0 || aluno == nullptr) {
         return false;
     }
 
-    matriculas--;
-    alunos[matriculas] = nullptr;
+    Pessoa* found{nullptr};
+
+    for (int i = 0; i < matriculas; i++) {
+        if (aluno == alunos[i]) {
+            found = alunos[i];
+            matriculas--;
+        }
+
+        if (found != nullptr && i + 1 < matriculas) {
+            alunos[i] = alunos[i + 1];
+        }
+    }
+
+    if (found != nullptr) {
+        return true;
+    }
+
+    std::cout << "Aluno " << aluno->getNome()
+              << " nao removido (nao encontrado)\n";
     return true;
 }
 
@@ -53,20 +72,23 @@ bool Disciplina::removerAluno(uint64_t cpfAluno) {
     Pessoa* aluno{nullptr};
 
     for (int i = 0; i < matriculas; i++) {
-        if (cpfAluno == alunos[i]->getCpf()) {
+        if (aluno == nullptr && alunos[i] != nullptr &&
+            cpfAluno == alunos[i]->getCpf()) {
             aluno = alunos[i];
             matriculas--;
         }
 
         if (aluno != nullptr && i + 1 < matriculas) {
             alunos[i] = alunos[i + 1];
-            // alunos[i + 1] = nullptr;
         }
     }
 
     if (alunos != nullptr) {
         return true;
     }
+
+    std::cout << "Aluno nao removido, cpf (" << cpfAluno
+              << ") nao encontrado\n";
 
     return false;
 }

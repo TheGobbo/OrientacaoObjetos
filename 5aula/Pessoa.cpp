@@ -1,7 +1,5 @@
 #include "Pessoa.hpp"
 
-Pessoa::Pessoa() {}
-
 Pessoa::Pessoa(std::string nomePessoa) : nome{nomePessoa} {}
 
 Pessoa::Pessoa(std::string nomePessoa, uint64_t cpfPessoa, uint8_t idadePessoa)

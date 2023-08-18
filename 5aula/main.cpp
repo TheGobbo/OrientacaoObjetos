@@ -71,14 +71,14 @@ int main() {
     oo.removerAluno(aluno2);
     oo.show();
 
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 4; i++) {
         oo.adicionarAluno(aluno2);
     }
     oo.show();
 
     oo.removerAluno(12345678910);
-    oo.removerAluno(11111111111);
-    oo.removerAluno(aluno1);
+    oo.removerAluno(11144477735);
+    // oo.removerAluno(aluno1);
 
     oo.show();
 

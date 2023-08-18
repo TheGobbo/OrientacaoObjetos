@@ -6,7 +6,6 @@
 
 class Pessoa {
    public:
-    Pessoa();
     Pessoa(std::string nomePessoa);
     Pessoa(std::string nomePessoa, uint64_t cpfPessoa, uint8_t idade);
 
@@ -25,7 +24,7 @@ class Pessoa {
     bool validarCPF(uint64_t cpfTeste);
 
     std::string nome;
-    uint64_t cpf;
-    uint8_t idade;
+    uint64_t cpf = 0;
+    uint8_t idade = 0;
 };
 #endif
