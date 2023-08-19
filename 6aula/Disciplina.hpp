@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include "Pessoa.hpp"
 #include "Curso.hpp"
+#include "Pessoa.hpp"
 
 class Disciplina {
    public:
@@ -21,6 +21,7 @@ class Disciplina {
     Pessoa* getProfessor();
 
     std::string getNomeProfessor();
+    std::string getNomeCurso();
     unsigned short int getMatriculas();
 
     bool adicionarAluno(Pessoa* aluno);
@@ -33,12 +34,12 @@ class Disciplina {
     void showAlunos();
 
    private:
-   Curso& curso;
+    Curso& curso;
     std::string nome;
     unsigned short int cargaHoraria;
     Pessoa* professor;
 
     unsigned short int matriculas{0};
-    Pessoa* alunos[50];  
+    Pessoa* alunos[50];
 };
 #endif

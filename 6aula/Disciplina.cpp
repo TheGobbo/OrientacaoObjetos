@@ -2,20 +2,17 @@
 
 #include <iostream>
 
-Disciplina::Disciplina(Curso& curso, std::string nome) : nome{nome} {
-    this->curso = curso;
-}
+Disciplina::Disciplina(Curso& curso, std::string nome)
+    : curso{curso}, nome{nome} {}
 
 Disciplina::Disciplina(Curso& curso, std::string nome, Pessoa* professor)
-    : nome{nome}, professor{professor} {
-        this->curso = curso;
+    : curso{curso}, nome{nome} {
+    this->professor = professor;
 }
 
 std::string Disciplina::getNome() { return this->nome; }
 
-void Disciplina::setNome(std::string nome) { 
-    this->nome = nome;
- }
+void Disciplina::setNome(std::string nome) { this->nome = nome; }
 
 int Disciplina::getCargaHoraria() { return this->cargaHoraria; }
 
@@ -23,11 +20,17 @@ void Disciplina::setCargaHoraria(unsigned int cargaHoraria) {
     this->cargaHoraria = cargaHoraria;
 }
 
-void Disciplina::setProfessor(Pessoa* professor) { this->professor = professor; }
+void Disciplina::setProfessor(Pessoa* professor) {
+    this->professor = professor;
+}
 
 Pessoa* Disciplina::getProfessor() { return this->professor; }
 
-std::string Disciplina::getNomeProfessor() { return this->professor->getNome(); }
+std::string Disciplina::getNomeProfessor() {
+    return this->professor->getNome();
+}
+
+std::string Disciplina::getNomeCurso() { return this->curso.getNome(); }
 
 unsigned short int Disciplina::getMatriculas() { return this->matriculas; }
 
@@ -93,8 +96,7 @@ bool Disciplina::removerAluno(uint64_t cpf) {
         return true;
     }
 
-    std::cout << "Aluno nao removido, cpf (" << cpf
-              << ") nao encontrado\n";
+    std::cout << "Aluno nao removido, cpf (" << cpf << ") nao encontrado\n";
 
     return false;
 }
@@ -103,6 +105,7 @@ void Disciplina::show() {
     std::cout << "+------------------------------------+\n";
     std::cout << "| Disciplina : " << nome << '\n';
     std::cout << "| Professor  : " << getNomeProfessor() << '\n';
+    std::cout << "| Curso      : " << getNomeCurso() << '\n';
     std::cout << "| matriculas : " << matriculas << '\n';
     std::cout << "| Alunos : \n";
     showAlunos();

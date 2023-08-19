@@ -26,9 +26,7 @@ void Pessoa::setCpf(uint64_t cpf) {
 
 std::string Pessoa::getNome() { return this->nome; }
 
-void Pessoa::setNome(std::string nome) {
-    this->nome = nome;
- }
+void Pessoa::setNome(std::string nome) { this->nome = nome; }
 
 unsigned short Pessoa::getIdade() { return (unsigned short)this->idade; }
 
