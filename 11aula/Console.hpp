@@ -3,9 +3,8 @@
 
 #include "Disciplina.hpp"
 
-class Console{
-	public:
-		static void imprimirDadosDisciplina(Disciplina& disciplina) ;
-	
+class Console {
+   public:
+    static void imprimirDadosDisciplina(const Disciplina& disciplina);
 };
 #endif

@@ -17,10 +17,10 @@ class Disciplina {
     ~Disciplina();
 
     std::string getNome() const;
-    void setNome(std::string nome);
+    void setNome(const std::string& nome);
 
     int getCargaHoraria() const;
-    void setCargaHoraria(unsigned int carga);
+    void setCargaHoraria(const unsigned int carga);
 
     Pessoa* getProfessor() const;
     void setProfessor(Pessoa* prof);
@@ -29,10 +29,9 @@ class Disciplina {
     SalaAula* getSalaAula() const;
     void anularSalaAula();
 
-    void imprimirDados(std::string& cabecalho, unsigned int cargaTotalCurso);
+    void imprimirDados(const std::string& cabecalho, unsigned int cargaTotalCurso);
 
-    void adicionarConteudoMinistrado(std::string conteudo,
-                                     unsigned short cargaHorariaConteudo);
+    void adicionarConteudoMinistrado(std::string conteudo, unsigned short cargaHorariaConteudo);
     void imprimirConteudosMinistrados();
     const std::list<ConteudoMinistrado*>& getConteudos() const;
 
