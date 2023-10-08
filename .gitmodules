@@ -1,0 +1,6 @@
+[submodule "Chalk"]
+	path = Chalk
+	url = git@github.com:TheGobbo/Chalk.git
+[submodule "EmberCraft"]
+	path = EmberCraft
+	url = git@github.com:TheGobbo/EmberCraft.git
