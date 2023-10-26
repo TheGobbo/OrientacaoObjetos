@@ -1,5 +1,8 @@
 #include "Professor.hpp"
+#include "NegativoInvalido.hpp"
+
 #include <stdexcept>
+
 
 Professor::Professor(const std::string& nome, const unsigned long cpf,
                const unsigned int valorHora, const unsigned short cargaHoraria)
@@ -10,7 +13,8 @@ Professor::~Professor(){
 }
 
 void Professor::setValorHora(const int valorHora){
-    if(valorHora < 0) throw std::invalid_argument{"Valor hora deve ser positivo"};
+    if(valorHora < 0) 
+        throw NegativoInvalido(valorHora);
     this->valorHora = valorHora;
 }
 
@@ -19,7 +23,8 @@ int Professor::getValorHora() const{
 }
 
 void Professor::setCargaHoraria(const short cargaHoraria){
-    if(cargaHoraria < 0) throw std::invalid_argument{"Carga horaria deve ser positiva"};
+    if(cargaHoraria < 0) 
+        throw NegativoInvalido(cargaHoraria);
     this->cargaHoraria = cargaHoraria;
 }
 

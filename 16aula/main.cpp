@@ -3,6 +3,7 @@
 #include "Pessoa.hpp"
 #include "ProfessorEngenheiro.hpp"
 #include "CPFInvalidoException.hpp"
+#include "NegativoInvalido.hpp"
 
 int main(){
     ProfessorEngenheiro pe{"Maria", 11111111111,85, 40, 1234};
@@ -15,7 +16,12 @@ int main(){
         pe.setValorHora(-123);
         std::cout << "Sucesso! " << pe.getCpf() << ", " << pe.getIdade() << '\n';
     } 
-
+    catch (const CPFInvalidoException& e) {
+        std::cerr << "Erro de CPF: " << e.what() << e.cpf << '\n';
+    }
+    catch (const NegativoInvalido& e) {
+        std::cerr << e.what() << ": " << e.valor << '\n';
+    }
     catch(const int& e) {
         std::cerr << "recebeu erro: " << e << '\n';
         switch (e){
@@ -30,11 +36,8 @@ int main(){
     } catch (const std::invalid_argument& e) {
         std::cerr << "Argumento invalido: " <<  e.what() << '\n';
     } 
-    catch (const CPFInvalidoException& e) {
-        std::cerr << "Erro de CPF: " << e.what() << e.cpf << '\n';
-    }
     catch (const std::exception& e) {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Erro generico: " << e.what() << '\n';
     }
 
     std::cout << pe.getCpf() << '\n';
