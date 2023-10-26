@@ -47,6 +47,11 @@
         "streambuf": "cpp",
         "fstream": "cpp",
         "optional": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "cstring": "cpp",
+        "ctime": "cpp",
+        "bitset": "cpp",
+        "map": "cpp",
+        "regex": "cpp"
     }
 }

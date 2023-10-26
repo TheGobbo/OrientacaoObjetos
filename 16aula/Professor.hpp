@@ -8,11 +8,11 @@ class Professor : virtual public Pessoa{
                 const unsigned int salario, const unsigned short cargaHoraria);
         virtual ~Professor();
 
-        void setValorHora(const unsigned int valorHora);
-        unsigned int getValorHora() const;
+        void setValorHora(const int valorHora);
+        int getValorHora() const;
 
-        void setCargaHoraria(const unsigned short cargaHoraria);
-        unsigned short getCargaHoraria() const;
+        void setCargaHoraria(const short cargaHoraria);
+        short getCargaHoraria() const;
         virtual unsigned int getSalario() const;
 
     private:

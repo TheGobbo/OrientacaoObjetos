@@ -2,6 +2,7 @@
 #include "CPFInvalidoException.hpp"
 
 #include <iostream>
+#include <stdexcept>
 
 Pessoa::Pessoa() {}
 
