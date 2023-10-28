@@ -7,6 +7,7 @@
 #include "CPFInvalidoException.hpp"
 #include "NegativoInvalido.hpp"
 #include "SalaAula.hpp"
+#include "EnumTipoDisciplina.hpp"
 
 /*
 TODOs:
@@ -24,7 +25,7 @@ TODOs:
     v ProfessorEngenheiro
     v SalaAula
 
-- [ ] A classe disciplina não deve aceitar uma carga horária menor do que 30 horas para uma disciplina mandatória. Disciplinas optativas podem ter qualquer carga horária. Modifique esse comportamento na classe disciplina, lançando uma exceção caso um valor inválido seja passado.
+- [x] A classe disciplina não deve aceitar uma carga horária menor do que 30 horas para uma disciplina mandatória. Disciplinas optativas podem ter qualquer carga horária. Modifique esse comportamento na classe disciplina, lançando uma exceção caso um valor inválido seja passado.
 */
 
 

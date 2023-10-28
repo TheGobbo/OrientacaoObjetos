@@ -9,13 +9,14 @@
 #include "ConteudoMinistrado.hpp"
 #include "EnumTipoDisciplina.hpp"
 
+
 namespace ufpr {
 class SalaAula;//Forward Declaration
 
 class Disciplina{
 	public:
-		Disciplina(const std::string& nome, EnumTipoDisciplina tipo);
-		Disciplina(const std::string& nome, EnumTipoDisciplina tipo, SalaAula* const sala);
+		Disciplina(const std::string& nome, const ufpr::EnumTipoDisciplina& tipo);
+		Disciplina(const std::string& nome, const ufpr::EnumTipoDisciplina& tipo, SalaAula* const sala);
 
 		virtual ~Disciplina();
 
@@ -45,7 +46,7 @@ class Disciplina{
 
 	private:
 		std::string nome;
-		const EnumTipoDisciplina tipo;
+		const ufpr::EnumTipoDisciplina tipo;
 		unsigned short int cargaHoraria;
 		Professor* professor;
 		SalaAula* sala;
