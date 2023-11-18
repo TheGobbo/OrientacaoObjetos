@@ -20,14 +20,14 @@ class Ementa {
     const std::string& getDescricao() const;
 
     void addLivro(std::shared_ptr<const Livro> livro);
-    const std::list<std::shared_ptr<const Livro>>* getLivros() const;
+    const std::unique_ptr<std::list<std::shared_ptr<const Livro>>> getLivros();
 
     Ementa& operator=(Ementa&& ementa);
     const Ementa& operator=(const Ementa& ementa);
 
    private:
     std::string descricao;
-    std::list<std::shared_ptr<const Livro>>* livros;
+    std::unique_ptr<std::list<std::shared_ptr<const Livro>>> livros;
 };
 }  // namespace ufpr
 #endif

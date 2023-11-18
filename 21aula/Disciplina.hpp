@@ -2,22 +2,25 @@
 #define DISCIPLINA_H
 
 #include <list>
+#include <memory>
 #include <string>
 
 #include "ConteudoMinistrado.hpp"
+#include "Ementa.hpp"
+#include "EnumTipoDisciplina.hpp"
 #include "Pessoa.hpp"
 #include "Professor.hpp"
-#include "EnumTipoDisciplina.hpp"
-#include "Ementa.hpp"
 
-namespace ufpr{
+namespace ufpr {
 class SalaAula;  // Forward Declaration
 class Disciplina {
    public:
     Disciplina(const std::string &nome);
     Disciplina(const std::string &nome, SalaAula *const sala);
-    Disciplina(const std::string &nome, SalaAula *const sala, const EnumTipoDisciplina tipo);
-    Disciplina(const std::string &nome, SalaAula *const sala, const EnumTipoDisciplina tipo, const Ementa& ementa);
+    Disciplina(const std::string &nome, SalaAula *const sala,
+               const EnumTipoDisciplina tipo);
+    Disciplina(const std::string &nome, SalaAula *const sala,
+               const EnumTipoDisciplina tipo, const Ementa &ementa);
 
     virtual ~Disciplina();
 
@@ -27,8 +30,8 @@ class Disciplina {
     int getCargaHoraria() const;
     void setCargaHoraria(const unsigned int carga);
 
-    const Professor *getProfessor() const;
-    void setProfessor(Professor *const prof);
+    const std::shared_ptr<Professor> getProfessor() const;
+    void setProfessor(std::shared_ptr<Professor> const prof);
 
     void setSalaAula(SalaAula *const sala);
     const SalaAula *getSalaAula() const;
@@ -47,13 +50,13 @@ class Disciplina {
     void removerAluno(const unsigned long cpf);
     const std::list<Pessoa *> &getAlunos() const;
 
-    void setEmenta(const Ementa& ementa);
-    const Ementa& getEmenta() const;
+    void setEmenta(const Ementa &ementa);
+    const Ementa &getEmenta() const;
 
    private:
     std::string nome;
     unsigned short int cargaHoraria;
-    Professor *professor;
+    std::shared_ptr<Professor> professor;
     SalaAula *sala;
     EnumTipoDisciplina tipo;
     Ementa ementa;

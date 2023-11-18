@@ -4,6 +4,10 @@
 #include "Ementa.hpp"
 #include "Livro.hpp"
 
+/* nao substitui todos os ponteiros para smart pointers devido ao tempo
+ * necessario
+ */
+
 int main() {
     ufpr::Ementa* ementa1{new ufpr::Ementa{"Paradigmas de programação"}};
     ufpr::Ementa* ementa2{new ufpr::Ementa{"Orientação a Objetos"}};

@@ -4,23 +4,28 @@
 
 #include "SalaAula.hpp"
 
-namespace ufpr{
+namespace ufpr {
 
 Disciplina::Disciplina(const std::string& nome)
-        : nome{nome}, sala{nullptr}, tipo{EnumTipoDisciplina::MANDATORIA} {}
+    : nome{nome}, sala{nullptr}, tipo{EnumTipoDisciplina::MANDATORIA} {}
 
 Disciplina::Disciplina(const std::string& nome, SalaAula* const sala)
-        : Disciplina{nome} {
+    : Disciplina{nome} {
     this->setSalaAula(sala);
 }
 
-Disciplina::Disciplina(const std::string& nome, SalaAula* const sala, const EnumTipoDisciplina tipo) 
-        :nome{nome}, sala{nullptr}, tipo{EnumTipoDisciplina::MANDATORIA} {
+Disciplina::Disciplina(const std::string& nome, SalaAula* const sala,
+                       const EnumTipoDisciplina tipo)
+    : nome{nome}, sala{nullptr}, tipo{EnumTipoDisciplina::MANDATORIA} {
     this->setSalaAula(sala);
 }
 
-Disciplina::Disciplina(const std::string& nome, SalaAula* const sala, const EnumTipoDisciplina tipo, const Ementa& ementa) 
-        :nome{nome}, sala{nullptr}, tipo{EnumTipoDisciplina::MANDATORIA}, ementa{ementa} {
+Disciplina::Disciplina(const std::string& nome, SalaAula* const sala,
+                       const EnumTipoDisciplina tipo, const Ementa& ementa)
+    : nome{nome},
+      sala{nullptr},
+      tipo{EnumTipoDisciplina::MANDATORIA},
+      ementa{ementa} {
     this->setSalaAula(sala);
 }
 
@@ -43,9 +48,13 @@ void Disciplina::setCargaHoraria(const unsigned int carga) {
     this->cargaHoraria = carga;
 }
 
-const Professor* Disciplina::getProfessor() const { return this->professor; }
+const std::shared_ptr<Professor> Disciplina::getProfessor() const {
+    return this->professor;
+}
 
-void Disciplina::setProfessor(Professor* const prof) { this->professor = prof; }
+void Disciplina::setProfessor(std::shared_ptr<Professor> const prof) {
+    this->professor = prof;
+}
 
 void Disciplina::setSalaAula(SalaAula* const sala) {
     if (this->sala !=
@@ -113,11 +122,7 @@ const std::list<Pessoa*>& Disciplina::getAlunos()
     return this->alunos;
 }
 
-void Disciplina::setEmenta(const Ementa& ementa){
-    this->ementa = ementa;
-}
+void Disciplina::setEmenta(const Ementa& ementa) { this->ementa = ementa; }
 
-const Ementa& Disciplina::getEmenta() const{
-    return this->ementa;
-}
-}
+const Ementa& Disciplina::getEmenta() const { return this->ementa; }
+}  // namespace ufpr
